@@ -1,0 +1,76 @@
+.navbar {
+	&.navbar {
+		&-avon {
+			.navbar {
+				&-nav {
+					li {
+						a {
+							background-color: transparent;
+							color: #000000;
+							.cuprumbold();
+							font-size: 20px;
+							.transition(all .5s);
+						}
+						&:hover {
+							a {
+								background-color: @avon-bg;
+								color: #ffffff;
+							}
+						}
+						&.active {
+							a {
+								background-color: transparent;
+								color: @avon-bg;
+							}
+							&:hover {
+								a {
+									background-color: @avon-bg;
+									color: #ffffff;
+								}
+							}	
+						}
+					}
+				}
+			}
+			@media(min-width: 768px) {
+				.navbar {
+					&-collapse {
+						text-align: center;
+					}
+					&-nav {
+						display: inline-block;
+						text-align: center;
+						float: none;
+						> li {
+							position: relative;
+							margin-right: 15px;
+							&:before {
+								content: "";
+								display: block;
+								width: 5px;
+								height: 5px;
+								background-color: @avon-bg;
+								border-radius: 50%;
+								position: absolute;
+								top: 50%;
+								right: -10px;
+								margin-top: -2.5px;
+							}
+							&:last-child {
+								margin-right: 0px;
+								&:before {
+									display: none;
+								}
+							}
+							> a {
+								min-width: 100px;
+								padding-top: 5px;
+								padding-bottom: 5px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

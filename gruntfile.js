@@ -1,7 +1,8 @@
 module.exports = function(grunt){
 	var gc = {
 		imageNotyfy: __dirname+'\\notify.png',
-		minifyHtml: true
+		minifyHtml: false,
+		minifyCss: false
 	};
 	require('load-grunt-tasks')(grunt);
 	require('time-grunt')(grunt);
@@ -16,7 +17,7 @@ module.exports = function(grunt){
 					]
 				},
 				options : {
-					compress: false,
+					compress: gc.minifyCss,
 					ieCompat: false
 				}
 			}
@@ -45,12 +46,12 @@ module.exports = function(grunt){
 						'bower_components/jquery/dist/jquery.js',
 						'bower_components/jquery-mousewheel/jquery.mousewheel.js',
 						'bower_components/jquery.maskedinput/dist/jquery.maskedinput.js',
-						'bower_components/bootstrap/dist/bootstrap.js',
 						'bower_components/slick-carousel/slick/slick.js',
 						'bower_components/jarallax/jarallax/jarallax.js',
 						'bower_components/jarallax/jarallax/jarallax-video.js',
 						'bower_components/hyphernationRUru/dist/jquery.hypher.js',
 						'bower_components/hyphernationRUru/dist/ru-ru.js',
+						'bower_components/bootstrap/dist/js/bootstrap.js',
 						'src/js/main.js'
 					]
 				}
