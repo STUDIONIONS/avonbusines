@@ -6,8 +6,7 @@
     "ProjectSoft <projectsoft2009@yandex.ru>"
   ],
   "license": "ISC",
-  "homepage": "http://www.avonbusinesworld.ru/",
-  "private": true,
+  "homepage": "https://github.com/STUDIONIONS/avonbusines",
   "ignore": [
     "**/.*",
     "node_modules",

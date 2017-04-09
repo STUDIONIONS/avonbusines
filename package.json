@@ -6,6 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/STUDIONIONS/avonbusines.git"
+  },
   "author": "ProjectSoft <projectsoft2009@yandex.ru>",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/STUDIONIONS/avonbusines/issues"
+  },
+  "homepage": "http://www.avonbusinesworld.ru/"
 }
