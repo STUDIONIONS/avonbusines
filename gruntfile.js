@@ -16,7 +16,7 @@ module.exports = function(grunt){
 					]
 				},
 				options : {
-					compress: true,
+					compress: false,
 					ieCompat: false
 				}
 			}
@@ -46,6 +46,11 @@ module.exports = function(grunt){
 						'bower_components/jquery-mousewheel/jquery.mousewheel.js',
 						'bower_components/jquery.maskedinput/dist/jquery.maskedinput.js',
 						'bower_components/bootstrap/dist/bootstrap.js',
+						'bower_components/slick-carousel/slick/slick.js',
+						'bower_components/jarallax/jarallax/jarallax.js',
+						'bower_components/jarallax/jarallax/jarallax-video.js',
+						'bower_components/hyphernationRUru/dist/jquery.hypher.js',
+						'bower_components/hyphernationRUru/dist/ru-ru.js',
 						'src/js/main.js'
 					]
 				}
@@ -95,6 +100,26 @@ module.exports = function(grunt){
 						filter: 'isFile'
 					}
 				]
+			}
+		},
+		copy: {
+			main: {
+				expand: true,
+				cwd: 'src/fonts',
+				src: '**',
+				dest: 'assets/template/ioweb/fonts/',
+			},
+			bootstrap: {
+				expand: true,
+				cwd: 'bower_components/bootstrap/dist/fonts',
+				src: '**',
+				dest: 'assets/template/ioweb/fonts/',
+			},
+			slick: {
+				expand: true,
+				cwd: 'bower_components/slick-carousel/slick/fonts',
+				src: '**',
+				dest: 'assets/template/ioweb/fonts/',
 			}
 		},
 		jade: {
@@ -159,6 +184,6 @@ module.exports = function(grunt){
 			}
 		}
 	});
-	grunt.registerTask('default', 	['notify:watch','imagemin', 'less', 'autoprefixer', 'uglify','jade','notify:done']);
+	grunt.registerTask('default', 	['notify:watch', 'imagemin', 'less', 'autoprefixer', 'copy', 'uglify', 'jade', 'notify:done']);
 	grunt.registerTask('dev', 		['watch']);
 }
