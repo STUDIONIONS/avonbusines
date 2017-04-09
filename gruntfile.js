@@ -42,6 +42,10 @@ module.exports = function(grunt){
 			main: {
 				files: {
 					'assets/template/ioweb/js/main.js': [
+						'bower_components/jquery/dist/jquery.js',
+						'bower_components/jquery-mousewheel/jquery.mousewheel.js',
+						'bower_components/jquery.maskedinput/dist/jquery.maskedinput.js',
+						'bower_components/bootstrap/dist/bootstrap.js',
 						'src/js/main.js'
 					]
 				}
