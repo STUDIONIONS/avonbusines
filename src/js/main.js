@@ -4,6 +4,7 @@ $(function(){
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		pauseOnHover: false,
-		autoplay: true
+		autoplay: true,
+		pauseOnFocus: false
 	});
 });
