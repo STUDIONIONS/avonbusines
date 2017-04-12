@@ -7,9 +7,16 @@
 	}
 	.site-slogan {
 		.heuristica();
+		.user-select(none);
 		color: black;
 		font-size: 18px;
 		padding-top: 10px;
+		a {
+			&, &:hover, &:focus {
+				text-decoration: none;
+				color: black;
+			}
+		}
 		img {
 			max-width: 175px
 		}
@@ -21,6 +28,7 @@
 		text-align: center;
 		@media(min-width: 992px) {
 			text-align: right;
+			padding-top: 7px;
 		}
 	}
 	.btn_wrapper {
@@ -31,6 +39,19 @@
 		}
 		.btn {
 			margin-bottom: 10px;
+			min-width: 194px;
+			text-align: center !important;
+		}
+		.left, .right {
+			text-align: center;
+		}
+		@media(min-width: 992px){
+			.left {
+				text-align: right;
+			}
+			.right {
+				text-align: left;
+			}
 		}
 	}
 }

@@ -165,7 +165,7 @@ module.exports = function(grunt){
 					'src/images/*.{png,jpg,gif,svg}',
 					'src/images/css/*.{png,jpg,gif,svg}'
 				],
-				tasks: ['notify:watch', 'imagemin', 'less', 'autoprefixer','notify:done']
+				tasks: ['notify:watch', 'newer:imagemin', 'less', 'autoprefixer','notify:done']
 			}
 		},
 		notify: {
@@ -185,6 +185,6 @@ module.exports = function(grunt){
 			}
 		}
 	});
-	grunt.registerTask('default', 	['notify:watch', 'imagemin', 'less', 'autoprefixer', 'copy', 'uglify', 'jade', 'notify:done']);
+	grunt.registerTask('default', 	['notify:watch', 'newer:imagemin', 'less', 'autoprefixer', 'copy', 'uglify', 'jade', 'notify:done']);
 	grunt.registerTask('dev', 		['watch']);
 }

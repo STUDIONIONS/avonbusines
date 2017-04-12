@@ -1,0 +1,43 @@
+.section {
+	&_home {
+		&_01 {
+			text-align: center;
+			padding-bottom: 5%;
+			.title {
+				margin-top: 7%;
+				margin-bottom: 4%;
+			}
+			.list {
+				text-align: left;
+				display: inline-block;
+				list-style: none;
+				margin-bottom: 0px;
+				padding-left: 0px;
+				color: #595959;
+				.heuristicabold();
+				font-size: 26px;
+				> li {
+					position: relative;
+					padding-left: 40px;
+					&:before {
+						position: absolute;
+						content: "";
+						display: block;
+						border-radius: 50%;
+						width: 10px;
+						height: 10px;
+						left: 0px;
+						top: 50%;
+						margin-top: -5px;
+						background-color: #595959;
+					}
+				}
+			}
+			@media(max-width: 600px) {
+				.list {
+					font-size: 18px;
+				}
+			}
+		}
+	}
+}

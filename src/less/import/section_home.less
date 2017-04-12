@@ -1,0 +1,38 @@
+.section {
+	&_home {
+		&_01, &_02, &_03 {
+			position: relative;
+			.title {
+				.heuristicabold();
+				font-size: 24px;
+				> span {
+					color: @avon-bg;
+				}
+			}
+			&:after {
+				position: absolute;
+				bottom: -15px;
+				left: 50%;
+				margin-left: -15px;
+				color: #A5A7AA;
+				font-size: 30px;
+				display: block;
+				font-family: 'AvonBusinesSite' !important;
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				text-align: center;
+				content: @icon-bant;
+			}
+		}
+	}
+}
+@import "section_home_01.less";
+@import "section_home_02.less";
+@import "section_home_03.less";
+@import "section_home_04.less";

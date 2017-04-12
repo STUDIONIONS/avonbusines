@@ -1,17 +1,19 @@
 div.navbar.navbar-avon(role="navigation")
 	div.container-fluid
 		div.navbar-header
+			span.text-menu
+				|Меню сайта
 			button.navbar-toggle(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
 				span.icon-bar
 				span.icon-bar
 				span.icon-bar
-		nav#bs-example-navbar-collapse-1.collapse.navbar-collapse
+		nav(itemscope itemtype="http://schema.org/SiteNavigationElement").collapse.navbar-collapse#bs-example-navbar-collapse-1
 			ul.nav.navbar-nav
 				li.active
-					a(href="#") Ссылка
+					a(href="#" itemprop="url") Ссылка
 				li
-					a(href="#") Ссылка
+					a(href="#" itemprop="url") Ссылка
 				li
-					a(href="#") Ссылка
+					a(href="#" itemprop="url") Ссылка
 				li
-					a(href="#") Ссылка
+					a(href="#" itemprop="url") Ссылка

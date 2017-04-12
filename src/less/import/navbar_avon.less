@@ -4,17 +4,24 @@
 			.navbar {
 				&-nav {
 					li {
+						.user-select(none);
 						a {
 							background-color: transparent;
 							color: #000000;
 							.cuprumbold();
 							font-size: 20px;
 							.transition(all .5s);
+							@media(min-width: 768px) {
+								border-top-left-radius: 100%;
+								border-bottom-right-radius: 100%;
+							}
 						}
 						&:hover {
 							a {
 								background-color: @avon-bg;
 								color: #ffffff;
+								border-top-left-radius: 0px;
+								border-bottom-right-radius: 0px;
 							}
 						}
 						&.active {
@@ -31,8 +38,48 @@
 						}
 					}
 				}
+				&-toggle {
+					border: 1px solid @avon-bg;
+					background-color: transparent;
+					&, * {
+						.transition(all .5s);
+					}
+					.icon-bar {
+						background-color: @avon-bg;
+					}
+					&:hover{
+						background-color: @avon-bg;
+						.icon-bar {
+							background-color: #ffffff;
+						}
+					}
+					&[aria-expanded=true] {
+						background-color: @avon-bg;
+						.icon-bar {
+							background-color: #ffffff;
+						}
+					}
+					&[aria-expanded=false] {
+						background-color: transparent;
+						.icon-bar {
+							background-color: @avon-bg;
+						}
+						&:hover{
+							background-color: @avon-bg;
+							.icon-bar {
+								background-color: #ffffff;
+							}
+						}
+					}
+				}
+			}
+			.text-menu {
+				.user-select(none);
 			}
 			@media(min-width: 768px) {
+				.text-menu {
+					display: none;
+				}
 				.navbar {
 					&-collapse {
 						text-align: center;
@@ -55,6 +102,7 @@
 								top: 50%;
 								right: -10px;
 								margin-top: -2.5px;
+								pointer-events: none;
 							}
 							&:last-child {
 								margin-right: 0px;
@@ -69,6 +117,18 @@
 							}
 						}
 					}
+				}
+			}
+			@media (max-width: 767px){
+				border-top: 1px solid @avon-bg;
+				border-bottom: 1px solid @avon-bg;
+				border-radius: 0px !important;
+				margin-bottom: 0px;
+				.text-menu {
+					display: inline-block;
+					padding: 12px 10px;
+					.heuristicabold();
+					font-size: 18px;
 				}
 			}
 		}
