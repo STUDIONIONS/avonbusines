@@ -1,4 +1,5 @@
-section.container-fluid.section_home
+include ../variables
+section.container-fluid.section_home.section_affter_icon
 	.row.section_home_04
 		.container-fluid.title_bg
 			h2.text-center.text-uppercase.title ЧТО ВАМ ДАЕТ КОМПАНИЯ 
@@ -8,6 +9,8 @@ section.container-fluid.section_home
 			.row
 				.container.content
 					.flex
+						.column.image
+							img.img-responsive(src="assets/templates/ioweb/images/flex_01.jpg")
 						.column.text
 							.column_wrapper
 								h3 Стать её Представителем
@@ -17,11 +20,9 @@ section.container-fluid.section_home
 									li Бесплатная доставка
 									li Персональный менеджер
 									li Обучение по подбору продукции себе и клиентам
-						.column.image
-							img.img-responsive(src="assets/template/ioweb/images/flex_01.jpg")
 					.flex
 						.column.image
-							img.img-responsive(src="assets/template/ioweb/images/flex_02.jpg")
+							img.img-responsive(src="assets/templates/ioweb/images/flex_02.jpg")
 						.column.text
 							.column_wrapper
 								h3 Работа в AVON
@@ -31,6 +32,8 @@ section.container-fluid.section_home
 									li 17 зарплат в году на карту Сбербанка
 									li Обучение и поддержка для начинающих
 					.flex
+						.column.image
+							img.img-responsive(src="assets/templates/ioweb/images/flex_03.jpg")
 						.column.text
 							.column_wrapper
 								h3 Поддержка Представителям
@@ -39,11 +42,8 @@ section.container-fluid.section_home
 									li Все нужные документы и инструкции
 									li Информация о  спецальных предложениях и программах для Представителей
 									li Анонсы новинок и акций каталогов
-						.column.image
-							img.img-responsive(src="assets/template/ioweb/images/flex_03.jpg")
 					.last_text 
 						p Вас ждут сюрпризы и от компании AVON, так же подарки от компаний-партнёров. Размещайте заказы ваших клиентов из новых каталогов и получайте бонусы.
 							br
 							|В многоуровневой системе AVON  на каждом этапе вас ждут свои привилегии, что несомненно даёт мотивации к новым успехам и победам!
-					.button_wrapper.text-center
-						a.btn.btn-avon.btn-lg(href="javascript:;") Заполнить анкету
+		.container-fluid.footer_bg 

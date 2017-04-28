@@ -11,9 +11,20 @@ module.exports = function(grunt){
 		pkg : grunt.file.readJSON('package.json'),
 		less: {
 			css: {
-				files : {
+				files : {//'test/css/main.css'D:\\domains\\avonmodx.bus\\assets\\templates\\ioweb\\css\\main.css
 					'test/css/main.css' : [
 						'src/less/main.less'
+					]
+				},
+				options : {
+					compress: gc.minifyCss,
+					ieCompat: false
+				}
+			},
+			book: {
+				files : {//'test/css/main.css'D:\\domains\\avonmodx.bus\\assets\\templates\\ioweb\\css\\main.css
+					'test/css/bookstyle.css' : [
+						'src/less/bookstyle.less'
 					]
 				},
 				options : {
@@ -33,25 +44,60 @@ module.exports = function(grunt){
 				src: [
 					'test/css/main.css'
 				],
-				dest: 'assets/template/ioweb/css/'
+				//dest: 'assets/templates/ioweb/css/'
+				dest: 'D:\\domains\\avonmodx.bus\\assets\\templates\\ioweb\\css\\'
+			},
+			book: {
+				expand: true,
+				flatten: true,
+				src: [
+					'test/css/bookstyle.css'
+				],
+				//dest: 'assets/templates/ioweb/css/'
+				dest: 'D:\\domains\\avonmodx.bus\\assets\\templates\\ioweb\\css\\'
 			}
 		},
 		uglify : {
 			options: {
-				ASCIIOnly: true
+				ASCIIOnly: true,
+				//beautify: true
 			},
-			main: {
+			app: {
 				files: {
-					'assets/template/ioweb/js/main.js': [
+					'D:\\domains\\avonmodx.bus\\assets\\templates\\ioweb\\js\\app.js' : [
 						'bower_components/jquery/dist/jquery.js',
+						'bower_components/jquery-ui/jquery-ui.js',
 						'bower_components/jquery-mousewheel/jquery.mousewheel.js',
+					]
+				}
+			},
+			hypher: {
+				files: {
+					'D:\\domains\\avonmodx.bus\\assets\\templates\\ioweb\\js\\hypher.js' : [
+						'bower_components/hyphernationRUru/dist/jquery.hypher.js',
+						'bower_components/hyphernationRUru/dist/ru-ru.js',
+					]
+				}
+			},
+			plugins: {
+				files: {
+					'D:\\domains\\avonmodx.bus\\assets\\templates\\ioweb\\js\\plugins.js' : [
+						'bower_components/jquery_lazyload/jquery.lazyload.js',
 						'bower_components/jquery.maskedinput/dist/jquery.maskedinput.js',
+						'bower_components/fancybox/dist/jquery.fancybox.js',
 						'bower_components/slick-carousel/slick/slick.js',
 						'bower_components/jarallax/jarallax/jarallax.js',
 						'bower_components/jarallax/jarallax/jarallax-video.js',
-						'bower_components/hyphernationRUru/dist/jquery.hypher.js',
-						'bower_components/hyphernationRUru/dist/ru-ru.js',
+					]
+				}
+			},
+			main: {
+				files: {
+					//'assets/templates/ioweb/js/main.js'
+					'D:\\domains\\avonmodx.bus\\assets\\templates\\ioweb\\js\\main.js': [
 						'bower_components/bootstrap/dist/js/bootstrap.js',
+						//'bower_components/turn.js/turn.js',
+						'src/js/turn.js',
 						'src/js/main.js'
 					]
 				}
@@ -76,7 +122,8 @@ module.exports = function(grunt){
 						src: [
 							'src/images/*.{png,jpg,gif,svg}'
 						],
-						dest: 'assets/template/ioweb/images/',
+						//dest: 'assets/templates/ioweb/images/',
+						dest: 'D:\\domains\\avonmodx.bus\\assets\\templates\\ioweb\\images\\',
 						filter: 'isFile'
 					}
 				]
@@ -108,19 +155,22 @@ module.exports = function(grunt){
 				expand: true,
 				cwd: 'src/fonts',
 				src: '**',
-				dest: 'assets/template/ioweb/fonts/',
+				//dest: 'assets/templates/ioweb/fonts/',
+				dest: 'D:\\domains\\avonmodx.bus\\assets\\templates\\ioweb\\fonts\\',
 			},
 			bootstrap: {
 				expand: true,
 				cwd: 'bower_components/bootstrap/dist/fonts',
 				src: '**',
-				dest: 'assets/template/ioweb/fonts/',
+				//dest: 'assets/templates/ioweb/fonts/',
+				dest: 'D:\\domains\\avonmodx.bus\\assets\\templates\\ioweb\\fonts\\',
 			},
 			slick: {
 				expand: true,
 				cwd: 'bower_components/slick-carousel/slick/fonts',
 				src: '**',
-				dest: 'assets/template/ioweb/fonts/',
+				//dest: 'assets/templates/ioweb/fonts/',
+				dest: 'D:\\domains\\avonmodx.bus\\assets\\templates\\ioweb\\fonts\\',
 			}
 		},
 		jade: {
@@ -137,6 +187,58 @@ module.exports = function(grunt){
 					]
 				}
 			},
+			templates: {
+				options: {
+					pretty: !gc.minifyHtml,
+					data: {
+						debug: false
+					}
+				},
+				files: [
+					{
+						expand: true,
+						cwd: 'src/html/includes',
+						src: ['*.jade'],
+						dest: 'install/assets/chunks/',
+						ext: '.tpl'
+					}
+				]
+			}
+		},
+		usebanner: {
+			chunk: {
+				options: {
+					position: 'top',
+					replace: /\s+/,
+					process: function (filepath, f1, f2, f3, f4) {
+						var arr = [].slice.call(arguments, 0);
+						grunt.log.oklns(arr[0]);
+						return grunt.template.process(
+							"/** \n"+
+							" * <%= filename %>\n"+
+							" * \n"+
+							" * <%= template %> Templates AVON BUSINES\n"+
+							" * \n"+
+							" * @category	chunk\n"+
+							" * @version		1.0\n"+
+							" * @license		http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)\n"+
+							" * @internal	@modx_category Templates AVON BUSINES\n"+
+							" * @internal	@installset base\n"+
+							" * @internal	@overwrite false\n"+
+							" */\n",
+							{
+								data: {
+									filename: filepath.match(/\/([^/]*)\.tpl$/)[1],
+									template: String(filepath.match(/\/([^/]*)\.tpl$/)[1]).toUpperCase(filepath.match(/\/([^/]*)\.tpl$/)[1])
+								}
+							}
+						);
+					}
+				},
+				files: {
+					src: ['install/assets/chunks/*.tpl']
+				}
+			}
 		},
 		watch: {
 			options: {
@@ -146,26 +248,26 @@ module.exports = function(grunt){
 				files: [
 					'src/html/**/*.jade',
 				],
-				tasks: ["jade:avon","notify:done"]
+				tasks: ["jade","usebanner","notify:done"]
 			},
 			js: {
 				files: [
 					'src/js/**/*.js'
 				],
-				tasks: ['notify:watch', 'uglify','notify:done']
+				tasks: ['notify:watch', 'uglify:main','notify:done']
 			},
 			css: {
 				files: [
 					'src/less/**/*.{css,less}',
 				],
-				tasks: ['notify:watch', 'less', 'autoprefixer','notify:done']
+				tasks: ['notify:watch', 'less', 'autoprefixer','notify:done']//
 			},
 			images: {
 				files: [
 					'src/images/*.{png,jpg,gif,svg}',
 					'src/images/css/*.{png,jpg,gif,svg}'
 				],
-				tasks: ['notify:watch', 'newer:imagemin', 'less', 'autoprefixer','notify:done']
+				tasks: ['notify:watch', 'newer:imagemin', 'less', 'autoprefixer','notify:done']//
 			}
 		},
 		notify: {
@@ -185,6 +287,6 @@ module.exports = function(grunt){
 			}
 		}
 	});
-	grunt.registerTask('default', 	['notify:watch', 'newer:imagemin', 'less', 'autoprefixer', 'copy', 'uglify', 'jade', 'notify:done']);
+	grunt.registerTask('default', 	['notify:watch', 'imagemin', 'less', 'autoprefixer', 'copy', 'uglify', 'jade', 'notify:done']);
 	grunt.registerTask('dev', 		['watch']);
 }

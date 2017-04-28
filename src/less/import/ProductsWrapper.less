@@ -1,0 +1,55 @@
+.ProductsWrapper {
+	.clearfix();
+	padding-bottom: 40px;
+	.ProductItem {
+		.clearfix();
+		.ProductImage {
+			.clearfix();
+		}
+		&Text, &Image {
+			position: relative;
+			min-height: 2px;
+		}
+		&Div {
+			.clearfix();
+			border-bottom: 1px dashed #ccc;
+			padding-top: 30px;
+		}
+		&Text {
+			
+		}
+		&Image {
+			max-width:310px;
+			margin-left: auto;
+			margin-right: auto;
+			img {
+				cursor: pointer;
+				margin-bottom: 12px;
+			}
+		}
+		&_price {
+			position: absolute;
+			top: 14px;
+			left: 0px;
+			font-weight: bolder;
+			font-size: 16px;
+			color: #ec008c;
+		}
+		&_title {
+			color: #ec008c;
+			font-weight: bold;
+		}
+		&_description {
+			img {
+				position: relative;
+				max-width: 100%;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+		&_image{
+			
+		}
+	}
+}

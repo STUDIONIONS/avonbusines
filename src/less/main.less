@@ -1,12 +1,13 @@
-/* Bootstrap */
+// Bootstrap
 	@bootstrap: "../../bower_components/bootstrap/less/";
 	@slickpath: "../../bower_components/slick-carousel/slick/";
+	@fancy: "../../bower_components/fancybox/dist/";
 	@import "@{bootstrap}variables.less";
-	/* Project VARIABLES */
+// Project VARIABLES
 	@import "variables.less";
-	/* END Project VARIABLES */
+// END Project VARIABLES
 	
-	/* Project FONT */
+// Project FONT
 	@import "fonts/cuprum.less";
 	@import "fonts/cuprumbold.less";
 	@import "fonts/cuprumitalic.less";
@@ -18,7 +19,7 @@
 	@import "fonts/avonbusines.less";
 	@import "fonts.less";
 	
-	/* END Project FONT */
+// END Project FONT
 	
 	@icon-font-path: "@{project_font}/";
 	@import "@{bootstrap}mixins.less";
@@ -69,14 +70,21 @@
 	// Utility classes
 	@import "@{bootstrap}utilities.less";
 	@import "@{bootstrap}responsive-utilities.less";
-/* End Bootstrap */
-/* Slick */
+// End Bootstrap
+
+// Slick
 @import "@{slickpath}/slick.less";
 @import "@{slickpath}/slick-theme.less";
-/* End Slick */
+// End Slick
+.overflow {
+	overflow: hidden;
+}
+
 @import "import/btn-styles.less";
 @import "import/btn_avon.less";
 @import "import/head_top.less";
 @import "import/navbar_avon.less";
 @import "import/slider.less";
 @import "import/section_home.less";
+@import "import/footer.less";
+@import "@{fancy}jquery.fancybox.less";
